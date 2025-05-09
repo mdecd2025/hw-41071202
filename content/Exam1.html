@@ -146,6 +146,8 @@ img.add_border {
 <p>Exam1 (10%): 建立 Webots 基本物件模擬場景</p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam1 - 41071202</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/cjRPVQMAG7w?si=Zpj0HyCAC4suzxCV" title="YouTube video player" width="560"></iframe></p>
+<p>線架構圖</p>
+<p><img alt="" height="315" src="./../images/fourbar_exam1.png" width="560"/></p>
 <p>1.加入Robot</p>
 <p>2.在Robot底下的children加入Solid，再加入兩個Hingejoint，分別為joint1、joint4</p>
 <p>3.Solid-children-Shape-geometry-Box，建立1、0.1、0.1的方塊(base)</p>
@@ -160,13 +162,14 @@ img.add_border {
 <p>12.Hingejoint-jointParameters-HingejointParameters，調整axis(0、0、1)、anchor(0.4、0、0)</p>
 <p>13.在joint2底下的endPoint加入Hingejoint(joint3)</p>
 <p>14.Hingejoint-endPoint-Solid-children-Pose-children-Shape-geometry-Box，建立0.9、0.1、0.1的方塊(link3)</p>
-<p>15.Hingejoint-endPoint-SolidReference-link3</p>
-<p>16.調整位置(0.6、0、-0.1)與角度(0、0、-1、2.4)</p>
-<p>17.Hingejoint-jointParameters-HingejointParameters，調整axis(0、0、1)、anchor(0.6、0、0)</p>
-<p>18.加入三個桿件的boundingObject和physics</p>
-<p>19.boundingObject-Pose-children-USE</p>
-<p>20.加入controller</p>
-<p></p><br />Exam << <a href='Exam.html'>Previous</a> <a href='Exam2.html'>Next</a> >> Exam2</div>
+<p>15.調整位置(0.6、0、-0.1)與角度(0、0、-1、2.4)</p>
+<p>16.Hingejoint-jointParameters-HingejointParameters，調整axis(0、0、1)、anchor(0.6、0、0)</p>
+<p>17.在Robot底下的children加入Hingejoint(joint4)</p>
+<p>18.Hingejoint-endPoint-SolidReference-link3</p>
+<p>19.調整axis(0、0、1)、anchor(1、0、0)</p>
+<p>20.加入三個桿件的boundingObject和physics</p>
+<p>21.boundingObject-Pose-children-USE</p>
+<p>22.加入controller</p><br />Exam << <a href='Exam.html'>Previous</a> <a href='Exam2.html'>Next</a> >> Exam2</div>
         
     <!-- footer -->
       <div class="container">
