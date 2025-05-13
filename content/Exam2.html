@@ -144,8 +144,30 @@ img.add_border {
         </header>
     <div id="tipue_search_content">Exam1 << <a href='Exam1.html'>Previous</a> <a href='Exam3.html'>Next</a> >> Exam3<br /><h1>Exam2</h1>
 <p>Exam2 (10%): 利用 CAD 零組件建立模擬場景</p>
-<p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 學員學號</p>
-<br />Exam1 << <a href='Exam1.html'>Previous</a> <a href='Exam3.html'>Next</a> >> Exam3</div>
+<p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 Exam2 - 41071202</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/eSeN3_SUjqE?si=bvWhqApOVif_onLD" title="YouTube video player" width="560"></iframe></p>
+<p>solvespace 零件繪製與組合</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/3rDGwifmuXs?si=u-4M1WCT8Z6WvUrd" title="YouTube video player" width="560"></iframe></p>
+<p>webots 操作流程</p>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/kHzfPoJMgwc?si=oSIuwrfuDn2cTNNt" title="YouTube video player" width="560"></iframe></p>
+<p>1.加入Robot</p>
+<p>2.在Robot底下的children加入兩個Solid(base1、base2)，再加入兩個Hingejoint(joint1、joint4)</p>
+<p>3.Solid-children-CadShape，匯入base1、base2</p>
+<p>4.Hingejoint-endPoint-Solid-children-Shape-geometry-Mesh，匯入主動桿(長度為1.02m)</p>
+<p>5.Hingejoint-jointParameters-HingejointParameters，調整axis(0、0、1)</p>
+<p>6.加入RotationalMotor(motor)</p>
+<p>7.在joint1底下的endPoint加入Hingejoint(joint2)</p>
+<p>8.Hingejoint-endPoint-Solid-children-CadShape，匯入link2</p>
+<p>9.Hingejoint-jointParameters-HingejointParameters，調整axis(0、0、1)、anchor(1.0194、0.0356、0)</p>
+<p>10.在joint2底下的endPoint加入Hingejoint(joint3)</p>
+<p>11.Hingejoint-endPoint-Solid-children-CadShape，匯入link3</p>
+<p>12.Hingejoint-jointParameters-HingejointParameters，調整axis(0、0、1)、anchor(0.8462、1.5256、0)</p>
+<p>13.在Robot底下的children加入Hingejoint(joint4)</p>
+<p>14.Hingejoint-endPoint-SolidReference-link3</p>
+<p>15.調整axis(0、0、1)、anchor(2.5、0、0)</p>
+<p>16.加入boundingObject和physics</p>
+<p>17.boundingObject-Mesh</p>
+<p>18.加入controller</p><br />Exam1 << <a href='Exam1.html'>Previous</a> <a href='Exam3.html'>Next</a> >> Exam3</div>
         
     <!-- footer -->
       <div class="container">
