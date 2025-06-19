@@ -147,7 +147,135 @@ img.add_border {
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 HW1 - 41071202</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/N7LZvKsvtLk?si=RGUGeO_qDgwxC-J2" title="YouTube video player" width="560"></iframe></p>
 <p><a href="./../downloads/hw1.zip">hw1.zip</a></p>
-<br />Homework << <a href='Homework.html'>Previous</a> <a href='HW2.html'>Next</a> >> HW2</div>
+<p>相關提問:</p>
+<p><strong>1.在製作 HW1 之前是否實際練習 Tutorial1 與 Tutorial2?</strong></p>
+<p>這兩個教程能幫助我熟悉 Webots 的基本操作、機器人控制邏輯與感測器使用</p>
+<p><strong>2.Webots 是什麼樣的軟體？它主要用途為何？</strong></p>
+<p>是一款開源機器人模擬平台，主要用途為教學與學習機器人技術、研究與原型開發、測試控制演算法、開發智慧行為</p>
+<p><strong>3.在 Tutorial1 中，學習者需要操作的主要機器人模型名稱是什麼？</strong></p>
+<p>通常是 e-puck 或 Pioneer 3-DX</p>
+<p><strong>4.如何在 Webots 中建立並執行一個新的模擬世界（world）？</strong></p>
+<ol>
+<li>開啟 Webots → 點選 File &gt; New World</li>
+<li>使用左側「場景樹」加入機器人與感測器</li>
+<li>存檔為 .wbt 檔</li>
+<li> 點選綠色播放鍵（Run simulation）開始執行模擬</li>
+</ol>
+<p><strong>5.請說明如何讓機器人在模擬中移動，並指出相關的程式控制方式。</strong></p>
+<p>透過控制器的程式碼讓機器人移動；需要先用 getDevice() 抓取馬達，再設定速度</p>
+<p><strong>6.Tutorial1 中，學習者需要修改哪些參數或檔案來控制機器人的行為？</strong></p>
+<ol>
+<li>控制器程式碼</li>
+<li>馬達速度</li>
+<li>timestep </li>
+<li>感測器啟用</li>
+</ol>
+<p></p>
+<p><strong>7.請簡述 Webots 控制器（controller）的功能及其與機器人的關係。</strong></p>
+<p>控制器是一段程式碼，負責告訴機器人怎麼移動、偵測距離等；每個機器人都可以指定一個控制器</p>
+<p><strong>8.在 Tutorial2 中，機器人需要完成什麼樣的任務或行為？</strong></p>
+<ol>
+<li>使用感測器偵測障礙物</li>
+<li>自主避障</li>
+<li>改變移動方向</li>
+</ol>
+<p></p>
+<p><strong>9.Webots 中的 "Supervisor" 是什麼？它與一般機器人控制器有何不同？</strong></p>
+<p>是特殊的控制器，可控制整個模擬世界；一般控制器只能控制自己所屬機器人</p>
+<p><strong>10.請說明如何在 Webots 中進行感測器數據的讀取與應用（例如距離感測器、攝影機）。</strong></p>
+<p>sensor = robot.getDevice("<span>sensor</span>")<br/>sensor.enable(timestep)<br/>value = sensor.getValue()</p>
+<p><strong>11.若要延伸 Tutorial2 讓機器人具備自主避障能力，你會怎麼設計與實作？</strong></p>
+<p>利用以下三點做設計改變</p>
+<ol>
+<li>啟用距離感測器</li>
+<li>設定閾值</li>
+<li>判斷感測值是否小於閾值 → 調整輪子速度</li>
+</ol>
+<p></p>
+<p><strong>12.請說明 Webots 中「時間步長（timestep）」的意義，以及它對模擬的影響。</strong></p>
+<p>模擬的更新頻率，單位是毫秒，太大會降低模擬精度，太小則會影響效能。</p>
+<p><strong>13.如何在 Webots 中為機器人新增感測器？請說明基本步驟。</strong></p>
+<ol>
+<li>編輯 <code data-end="1533" data-start="1527">.wbt</code> 或使用場景樹新增感測器</li>
+<li>在控制器中啟用感測器 <code data-end="1585" data-start="1560">sensor.enable(timestep)</code></li>
+<li>使用 <code data-end="1604" data-start="1592">getValue()</code> 或其他讀值函式取得數據</li>
+</ol>
+<p></p>
+<p><strong>14.請說明如何將 Webots 控制器程式從 Python 改為 C 語言，並指出相關設定。</strong></p>
+<ol>
+<li>建立 <code data-end="1660" data-start="1656">.c</code> 控制器檔</li>
+<li>在機器人屬性中修改 <code data-end="1691" data-start="1679">controller</code> 名稱</li>
+<li>設定 <code data-end="1711" data-start="1701">Makefile</code> 編譯方式</li>
+<li>運行模擬，Webots 會自動執行該 C 控制器</li>
+</ol>
+<p></p>
+<p><strong>15.Tutorial1、2 中，若控制器程式有語法錯誤時，Webots 會如何反應？學員該如何排除？</strong></p>
+<p>會在 console 中顯示錯誤訊息且機器人不執行行為，從錯誤訊息找到問題再去改程式碼</p>
+<p></p>
+<p><strong>16.如何將 Webots 世界（world）或機器人設定檔分享給他人，確保對方可順利開啟模擬？</strong></p>
+<ol>
+<li>打包 <code data-end="1870" data-start="1864">.wbt</code> 檔與 <code data-end="1888" data-start="1874">controllers/</code>、split_parts<code data-end="1910" data-start="1899">/</code> 等資料夾</li>
+<li>壓縮成 ZIP 檔</li>
+<li>對方打開 <code data-end="1943" data-start="1937">.wbt</code> 即可使用</li>
+</ol>
+<p></p>
+<p><strong>17.如果想讓機器人在模擬時產生聲音或播放音樂，Webots 提供哪些方法？</strong></p>
+<p>使用 <code data-end="1985" data-start="1976">Speaker</code> 裝置</p>
+<p><strong>18.請說明如何在 Webots 中同時操作多個機器人，並讓它們各自執行不同控制器。</strong></p>
+<p>機器人指定不同 <code data-end="2166" data-start="2154">controller，就能同時操作</code></p>
+<p></p>
+<p data-end="2198" data-start="2170"></p>
+<p></p>
+<p><strong>19.在 Webots 控制器中，如何獲得機器人的當前座標位置與朝向？</strong></p>
+<p>使用 <code data-end="2247" data-start="2242">GPS</code> 或 <code data-end="2262" data-start="2250">Supervisor</code></p>
+<p><strong>20.請說明 Webots 控制器中感測器資料的單位（例如距離感測器、加速度計），以及如何正確解讀。</strong></p>
+<ol>
+<li>距離感測器：通常為模擬單位</li>
+<li>GPS：公尺</li>
+<li>加速度計：m/s²</li>
+<li>海拔計：m（相對地面）</li>
+</ol>
+<p></p>
+<p><strong>21.如果想要錄製 Webots 模擬畫面並輸出成影片檔，該如何操作？</strong></p>
+<ol>
+<li><code data-end="2506" data-start="2468">Simulation &gt; Movie &gt; Start Recording</code>，錄完後選擇 <code data-end="2525" data-start="2513">Save Movie</code> 匯出 <code data-end="2535" data-start="2529">.mp4</code></li>
+<li>用 sharex、OBS 等軟體錄製</li>
+</ol>
+<p></p>
+<p><strong>22.Webots 中的 PROTO 文件有什麼作用？與 world 檔（.wbt）的關係為何？</strong></p>
+<p><code data-end="2581" data-start="2573">.proto</code>：定義可重用的機器人/元件模板；<code data-end="2605" data-start="2599">.wbt</code>可引用 <code data-end="2622" data-start="2614">.proto</code> 元件</p>
+<p></p>
+<p></p>
+<p><strong>23.請說明如何在 Webots 中設定機器人的初始位置和方向。</strong></p>
+<p>在場景樹中編輯 <code data-end="2684" data-start="2671">translation</code> 和 <code data-end="2697" data-start="2687">rotation</code> 的參數</p>
+<p><strong>24.在 Tutorial1 或 Tutorial2 中，如何讓機器人執行預設外的自訂動作？</strong></p>
+<p>可設計狀態機或加入觸發邏輯</p>
+<p><strong>25.Webots 支援哪些主流程控制語言？各有何優缺點？</strong></p>
+<ol>
+<li>Python：簡單易學，適合初學者</li>
+<li>C/C++：效能高、可擴充性強</li>
+<li>Java、MATLAB：在特定應用中適用</li>
+</ol>
+<p></p>
+<p><strong>26.機器人控制器程式如何與其他程式（如資料記錄、遠端伺服器）進行通訊？</strong></p>
+<p>使用 TCP/IP、WebSocket、或檔案 I/O 可與遠端伺服器通訊</p>
+<p></p>
+<p><strong>27.Webots 的模擬世界中燈光和陰影設定如何影響感測器或相機的數據？</strong></p>
+<p>光線不足會影響相機或光度計讀值</p>
+<p><strong>28.如何在 Webots 中調整機器人或感測器的物理參數（如質量、摩擦係數）？</strong></p>
+<p>物件的 <code data-end="3163" data-start="3154">physics 可進行調整</code></p>
+<p><strong>29.請說明如何使用 Webots 的 Console 與 Debug 工具協助程式錯誤排除。</strong></p>
+<ol>
+<li>用 <code data-end="3275" data-start="3266">print()</code> 查看變數值</li>
+<li>用 <code data-end="3295" data-start="3287">step()</code> 一步步執行模擬</li>
+</ol>
+<p></p>
+<p></p>
+<p><strong>30.Tutorial1、2 裡的機器人遇到物體時，碰撞偵測機制如何運作？</strong></p>
+<p>當物體發生物理碰撞時，可透過感測器讀取是否碰到物件</p>
+<p><strong>31.若要將 Webots 模擬結果導出並進行數據分析，你會選擇哪些方法與工具？</strong></p>
+<p>先在控制器中寫入 <code data-end="3407" data-start="3401">.csv</code> 或 <code data-end="3416" data-start="3410">.txt</code> 檔，在用 Python 匯出感測器資料 → 用 Excel、Pandas 分析</p>
+<p></p><br />Homework << <a href='Homework.html'>Previous</a> <a href='HW2.html'>Next</a> >> HW2</div>
         
     <!-- footer -->
       <div class="container">
