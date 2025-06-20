@@ -229,7 +229,7 @@ brython_div1 &lt;= "7. " + html.A("41071202", href="https://mdecd2025.github.io/
 <p><strong>9.Webots 中的 "Supervisor" 是什麼？它與一般機器人控制器有何不同？</strong></p>
 <p>是特殊的控制器，可控制整個模擬世界；一般控制器只能控制自己所屬機器人</p>
 <p><strong>10.請說明如何在 Webots 中進行感測器數據的讀取與應用（例如距離感測器、攝影機）。</strong></p>
-<p>sensor = robot.getDevice("<span>sensor</span>")<br/>sensor.enable(timestep)<br/>value = sensor.getValue()</p>
+<p>sensor = robot.getDevice()<br/>sensor.enable(timestep)<br/>value = sensor.getValue()</p>
 <p><strong>11.若要延伸 Tutorial2 讓機器人具備自主避障能力，你會怎麼設計與實作？</strong></p>
 <p>利用以下三點做設計改變</p>
 <ol>
@@ -242,16 +242,16 @@ brython_div1 &lt;= "7. " + html.A("41071202", href="https://mdecd2025.github.io/
 <p>模擬的更新頻率，單位是毫秒，太大會降低模擬精度，太小則會影響效能。</p>
 <p><strong>13.如何在 Webots 中為機器人新增感測器？請說明基本步驟。</strong></p>
 <ol>
-<li>編輯 <code data-end="1533" data-start="1527">.wbt</code> 或使用場景樹新增感測器</li>
-<li>在控制器中啟用感測器 <code data-end="1585" data-start="1560">sensor.enable(timestep)</code></li>
-<li>使用 <code data-end="1604" data-start="1592">getValue()</code> 或其他讀值函式取得數據</li>
+<li>編輯 .wbt或使用場景樹新增感測器</li>
+<li>在控制器中啟用感測器 sensor.enable(timestep)</li>
+<li>使用 getValue() 或其他讀值函式取得數據</li>
 </ol>
 <p></p>
 <p><strong>14.請說明如何將 Webots 控制器程式從 Python 改為 C 語言，並指出相關設定。</strong></p>
 <ol>
-<li>建立 <code data-end="1660" data-start="1656">.c</code> 控制器檔</li>
-<li>在機器人屬性中修改 <code data-end="1691" data-start="1679">controller</code> 名稱</li>
-<li>設定 <code data-end="1711" data-start="1701">Makefile</code> 編譯方式</li>
+<li>建立 .c 控制器檔</li>
+<li>在機器人屬性中修改 controller 名稱</li>
+<li>設定 Makefile 編譯方式</li>
 <li>運行模擬，Webots 會自動執行該 C 控制器</li>
 </ol>
 <p></p>
@@ -260,20 +260,17 @@ brython_div1 &lt;= "7. " + html.A("41071202", href="https://mdecd2025.github.io/
 <p></p>
 <p><strong>16.如何將 Webots 世界（world）或機器人設定檔分享給他人，確保對方可順利開啟模擬？</strong></p>
 <ol>
-<li>打包 <code data-end="1870" data-start="1864">.wbt</code> 檔與 <code data-end="1888" data-start="1874">controllers/</code>、split_parts<code data-end="1910" data-start="1899">/</code> 等資料夾</li>
+<li>打包 .wbt 檔與 controllers/、split_parts/ 等資料夾</li>
 <li>壓縮成 ZIP 檔</li>
-<li>對方打開 <code data-end="1943" data-start="1937">.wbt</code> 即可使用</li>
+<li>對方打開 .wbt 即可使用</li>
 </ol>
 <p></p>
 <p><strong>17.如果想讓機器人在模擬時產生聲音或播放音樂，Webots 提供哪些方法？</strong></p>
-<p>使用 <code data-end="1985" data-start="1976">Speaker</code> 裝置</p>
+<p>使用 Speaker裝置</p>
 <p><strong>18.請說明如何在 Webots 中同時操作多個機器人，並讓它們各自執行不同控制器。</strong></p>
-<p>機器人指定不同 <code data-end="2166" data-start="2154">controller，就能同時操作</code></p>
-<p></p>
-<p data-end="2198" data-start="2170"></p>
-<p></p>
+<p>機器人指定不同 controller，就能同時操作</p>
 <p><strong>19.在 Webots 控制器中，如何獲得機器人的當前座標位置與朝向？</strong></p>
-<p>使用 <code data-end="2247" data-start="2242">GPS</code> 或 <code data-end="2262" data-start="2250">Supervisor</code></p>
+<p>使用 GPS 或 Supervisor</p>
 <p><strong>20.請說明 Webots 控制器中感測器資料的單位（例如距離感測器、加速度計），以及如何正確解讀。</strong></p>
 <ol>
 <li>距離感測器：通常為模擬單位</li>
@@ -284,16 +281,16 @@ brython_div1 &lt;= "7. " + html.A("41071202", href="https://mdecd2025.github.io/
 <p></p>
 <p><strong>21.如果想要錄製 Webots 模擬畫面並輸出成影片檔，該如何操作？</strong></p>
 <ol>
-<li><code data-end="2506" data-start="2468">Simulation &gt; Movie &gt; Start Recording</code>，錄完後選擇 <code data-end="2525" data-start="2513">Save Movie</code> 匯出 <code data-end="2535" data-start="2529">.mp4</code></li>
+<li>Simulation &gt; Movie &gt; Start Recording，錄完後選擇 Save Movie 匯出 .mp4</li>
 <li>用 sharex、OBS 等軟體錄製</li>
 </ol>
 <p></p>
 <p><strong>22.Webots 中的 PROTO 文件有什麼作用？與 world 檔（.wbt）的關係為何？</strong></p>
-<p><code data-end="2581" data-start="2573">.proto</code>：定義可重用的機器人/元件模板；<code data-end="2605" data-start="2599">.wbt</code>可引用 <code data-end="2622" data-start="2614">.proto</code> 元件</p>
+<p>.proto：定義可重用的機器人/元件模板；.wbt可引用 .proto 元件</p>
 <p></p>
 <p></p>
 <p><strong>23.請說明如何在 Webots 中設定機器人的初始位置和方向。</strong></p>
-<p>在場景樹中編輯 <code data-end="2684" data-start="2671">translation</code> 和 <code data-end="2697" data-start="2687">rotation</code> 的參數</p>
+<p>在場景樹中編輯 translation 和 rotation 的參數</p>
 <p><strong>24.在 Tutorial1 或 Tutorial2 中，如何讓機器人執行預設外的自訂動作？</strong></p>
 <p>可設計狀態機或加入觸發邏輯</p>
 <p><strong>25.Webots 支援哪些主流程控制語言？各有何優缺點？</strong></p>
@@ -309,18 +306,18 @@ brython_div1 &lt;= "7. " + html.A("41071202", href="https://mdecd2025.github.io/
 <p><strong>27.Webots 的模擬世界中燈光和陰影設定如何影響感測器或相機的數據？</strong></p>
 <p>光線不足會影響相機或光度計讀值</p>
 <p><strong>28.如何在 Webots 中調整機器人或感測器的物理參數（如質量、摩擦係數）？</strong></p>
-<p>物件的 <code data-end="3163" data-start="3154">physics 可進行調整</code></p>
+<p>物件的 physics 可進行調整</p>
 <p><strong>29.請說明如何使用 Webots 的 Console 與 Debug 工具協助程式錯誤排除。</strong></p>
 <ol>
-<li>用 <code data-end="3275" data-start="3266">print()</code> 查看變數值</li>
-<li>用 <code data-end="3295" data-start="3287">step()</code> 一步步執行模擬</li>
+<li>用 print() 查看變數值</li>
+<li>用 step() 一步步執行模擬</li>
 </ol>
 <p></p>
 <p></p>
 <p><strong>30.Tutorial1、2 裡的機器人遇到物體時，碰撞偵測機制如何運作？</strong></p>
 <p>當物體發生物理碰撞時，可透過感測器讀取是否碰到物件</p>
 <p><strong>31.若要將 Webots 模擬結果導出並進行數據分析，你會選擇哪些方法與工具？</strong></p>
-<p>先在控制器中寫入 <code data-end="3407" data-start="3401">.csv</code> 或 <code data-end="3416" data-start="3410">.txt</code> 檔，在用 Python 匯出感測器資料 → 用 Excel、Pandas 分析</p>
+<p>先在控制器中寫入 .csv 或 .txt 檔，在用 Python 匯出感測器資料 → 用 Excel、Pandas 分析</p>
 <p></p><h2>HW2</h2>
 <p>HW2 (5%): <span style="background-color: #ffff00;">建立由 CAD 繪製零件組成的平面四連桿機構 Webots 模擬場景</span></p>
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 HW2 - 41071202</p>
@@ -332,107 +329,61 @@ brython_div1 &lt;= "7. " + html.A("41071202", href="https://mdecd2025.github.io/
 <p><strong>2.在 Tutorial3 中，如何讓機器人偵測地面顏色？</strong></p>
 <p>透過機器人底部的 ground sensors 讀取地面反射的光強度，判斷是否為特定顏色</p>
 <p><strong>3.Ground sensors 在 Webots 裡的作用為何？</strong></p>
-<ol>
-<li>偵測顏色變化</li>
-<li>偵測區域邊界</li>
-<li>支援環境辨識與導航</li>
-</ol>
-<p></p>
+<p>辨識地面顏色，應用在巡線、區域判斷</p>
 <p><strong>4.如何在程式中取得 ground sensor 的數值？</strong></p>
-<p>sensor = robot.getDevice('<span>sensor</span>')<br/><span>sensor</span>.enable(timestep)<br/>value = <span>sensor</span>.getValue()</p>
+<p>sensor.getValue() 取得感測值</p>
 <p><strong>5.Tutorial3 中的 e-puck 機器人如何根據地面顏色改變行為？</strong></p>
-<p>若中間感測器偵測到黑線，表示在路上；若左右其中一個偵測到黑線，表示偏離，會透過調整左右輪速進行修正</p>
-<p></p>
+<p>依照不同感測器數值決定前進、轉向或停</p>
 <p><strong>6.為什麼要對 ground sensor 的數值進行校正（calibration）？</strong></p>
 <p>每個感測器在不同材質下的反射值不同，校正有助於準確偵測黑白界線，提高行為決策的可靠度</p>
 <p><strong>7.如何設定 ground sensor 的 sampling period？</strong></p>
-<p><span>sensor</span>.enable(time_step)</p>
+<p>使用 sensor.enable(time_step)</p>
 <p><strong>8.e-puck 機器人可以偵測哪些顏色？如何判斷？</strong></p>
-<p>黑白兩色，偵測反射光強度</p>
+<p>主要為黑與白，低值為黑，高值為白，設閾值判斷</p>
 <p><strong>9.Tutorial3 如何讓 e-puck 在遇到黑線時做出反應？</strong></p>
-<p>if sensor.getValue() &lt; 500:<br/> # 停下來或轉彎</p>
+<p>若感測值低於某值（如 &lt;500）則進行轉向或停止</p>
 <p><strong>10.若地面顏色偵測判斷有誤，可能原因有哪些？</strong></p>
-<ol>
-<li>感測器校正不足</li>
-<li>環境光影變化大</li>
-<li>地面材質反射異常</li>
-<li>閾值設太高或太低</li>
-</ol>
-<p></p>
+<p>校正問題、光影干擾、地面材質影響、感測器未啟用</p>
 <p><span style="background-color: #ffcc00;">Tutorial4 相關提問:</span></p>
 <p><strong>1.Tutorial4 的核心任務是什麼？</strong></p>
 <p>學習使用距離感測器來偵測前方或側邊的障礙物</p>
 <p><strong>2.如何讓機器人偵測牆壁或障礙物？</strong></p>
-<p>使用左右前的距離感測器讀取距離值，並設定閾值判斷是否過近</p>
+<p>利用側邊或前方感測器感知距離</p>
 <p><strong>3.Webots 的距離感測器（DistanceSensor）如何運作？</strong></p>
-<ol>
-<li>發射紅外線</li>
-<li>接收反射訊號</li>
-<li>根據反射強度推估距離</li>
-</ol>
-<p></p>
+<p>發射紅外線，接收反射，距離越近值越大</p>
 <p><strong>4.如何在程式中啟用並讀取 DistanceSensor 的數值？</strong></p>
-<p>sensor = robot.getDevice('ps0')<br/><span>s</span><span>ensor</span>.enable(time_step)<br/>value = <span>s</span><span>ensor</span>.getValue()</p>
+<p>使用sensor.getValue()</p>
 <p><strong>5.Tutorial4 中，e-puck 機器人如何實作避障行為？</strong></p>
-<p>右側感測器數值大 → 向左轉</p>
-<p>左側數值大 → 向右轉</p>
-<p>正前方過近 → 停或後退再轉彎</p>
-<p></p>
-<p></p>
+<p>根據感測數值高低控制輪速轉向</p>
 <p><strong>6.距離感測器數值的單位是什麼？如何轉換？</strong></p>
 <p>數值是無單位的比例，越近值越高；若要轉換成距離（mm/cm）</p>
-<p></p>
 <p><strong>7.如何設定距離感測器的 sampling period？</strong></p>
-<p><span>s</span><span>ensor</span>.enable(time_step)</p>
+<p><span>使用s</span><span>ensor</span>.enable(time_step)</p>
 <p><strong>8.當機器人同時偵測到左、右兩側有障礙物時，應如何設計行為？</strong></p>
-<p>優先讓右邊通過，或後退一段後隨機轉向</p>
-<p></p>
+<p>可後退再隨機轉向，或設優先方向</p>
 <p><strong>9.為什麼避障時要考慮多個感測器的數值？</strong></p>
-<ol>
-<li>增加準確性</li>
-<li>判斷障礙物位置與方向</li>
-<li>避免單一感測器誤判</li>
-</ol>
-<p></p>
-<p><strong>10.Tutorial4 若機器人無法正確避障，可能的解決方法有哪些？</strong></p>
-<ol>
-<li>感測器未啟用或讀值為 0</li>
-<li>閾值設定錯誤</li>
-<li>控制邏輯錯誤</li>
-<li>環境模擬物體無碰撞體積</li>
-</ol>
-<p></p>
+<p>提高判斷精準度，確定障礙方向與位置</p>
+<p><strong>10.Tutorial4 若機器人無法正確避障，可能的解決方法有哪些?</strong></p>
+<p>感測器未啟用、閾值錯誤、邏輯錯、無碰撞模型</p>
 <p><span style="background-color: #ffcc00;">Tutorial5 相關提問:</span></p>
 <p><strong>1.Tutorial5 的主要內容主題為何？</strong></p>
 <p>整合地面與距離感測器，完成更複雜任務</p>
-<p></p>
 <p><strong>2.如何讓機器人依照不同地面顏色或障礙物狀態做出不同反應？</strong></p>
 <p>根據地面顏色或障礙物切換行為（巡線、避障）</p>
-<p></p>
 <p><strong>3.Tutorial5 中如何結合多種感測器進行複雜任務？</strong></p>
-<p>同時讀取 ground sensors + distance sensors，用條件邏輯或狀態機決定行為切換</p>
-<p></p>
+<p>同時讀取多感測器數值，條件判斷切換狀態</p>
 <p><strong>4.如何設計機器人巡線並同時避障？</strong></p>
 <p>巡線時遇障礙切換避障，避完後恢復巡線</p>
-<p></p>
 <p><strong>5.若多種感測器回報衝突訊息，程式該如何決策？</strong></p>
 <p>設計優先順序或使用有限狀態機（FSM）管理流程</p>
 <p><strong>6.在 Tutorial5 裡，機器人如何完成任務流程的狀態切換？</strong></p>
-<p></p>
 <p>設定變數表示狀態，依條件改變狀態值</p>
 <p><strong>7.如何在程式中設計有限狀態機（FSM）？</strong></p>
-<p>用 <code data-end="2771" data-start="2767">if</code> 或 <code data-end="2786" data-start="2774">match-case</code> 結構撰寫控制邏輯</p>
+<p>用 if 或 match-case 結構撰寫控制邏輯</p>
 <p><strong>8.Tutorial5 的挑戰題目有哪些？如何著手解決？</strong></p>
 <p>在複雜地圖巡線避障或回到起點；明確定義狀態、逐步測試感測器與行為邏輯，加入偵錯輸出以監控狀態變化</p>
-<p></p>
 <p><strong>9.若要讓機器人自主完成一個完整路徑的巡邏任務，應加入哪些功能？</strong></p>
-<ol>
-<li>記憶地圖或編號地點</li>
-<li>順序導航</li>
-<li>到達點後切換任務</li>
-<li>加入時間控制、位置辨識</li>
-</ol>
-<p></p>
+<p>路線記憶、狀態控制、回報任務點、環境識別等</p>
 <p><strong>10.綜合 Tutorial3~5，請說明感測器資料融合（sensor fusion）的意義與應用。</strong></p>
 <p>將多種感測器資料整合後再進行決策，提高準確性與穩定性，彌補單一感測器侷限；同時進行巡線與避障，可減少錯誤決策、提升自動化能力</p>
 <p></p><h2>HW3</h2>
@@ -440,7 +391,39 @@ brython_div1 &lt;= "7. " + html.A("41071202", href="https://mdecd2025.github.io/
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 HW3 - 41071202</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/F3-YU-pUmgI?si=zMT3v9LkJ4_-pQlv" title="YouTube video player" width="560"></iframe></p>
 <p><a href="/downloads/hw3.zip">hw3.zip</a></p>
-<h1>Midterm</h1>
+<p><span style="background-color: #ffcc00;">Tutorial6 相關提問:</span></p>
+<p><strong>1.Tutorial6 的主要學習主題是什麼？</strong></p>
+<p><strong>2.在 Tutorial6 中，e-puck 機器人新增了哪些裝置？</strong></p>
+<p><strong>3.如何在 Webots 中使用攝影機（Camera）？</strong></p>
+<p><strong>4.Camera 需要在程式中如何啟用？</strong></p>
+<p><strong>5.如何取得攝影機擷取到的影像資料？</strong></p>
+<p><strong>6.Tutorial6 中，機器人如何依據攝影機影像做出反應？</strong></p>
+<p><strong>7.Camera 裝置可以調整哪些參數？</strong></p>
+<p><strong>8.影像解析度的設定會對模擬有什麼影響？</strong></p>
+<p><strong>9.如何將攝影機影像儲存成圖片檔？</strong></p>
+<p><strong>10.若攝影機影像顯示異常，可能的原因有哪些？</strong></p>
+<p><span style="background-color: #ffcc00;">Tutorial7 相關提問:</span></p>
+<p><strong>1.Tutorial7 的核心任務是什麼？</strong></p>
+<p><strong>2.在本範例中 e-puck 機器人如何偵測顏色？</strong></p>
+<p><strong>3.如何分析攝影機擷取的影像來辨識特定顏色？</strong></p>
+<p><strong>4.OpenCV 或其他影像處理函式庫在 Webots 控制器程式中的應用方式？</strong></p>
+<p><strong>5.如何將影像中的顏色資訊轉換為機器人行為？</strong></p>
+<p><strong>6.若要辨識多種顏色，程式需考慮哪些步驟？</strong></p>
+<p><strong>7.如何解決不同光源下顏色偵測的不穩定問題？</strong></p>
+<p><strong>8.e-puck 機器人如何追蹤影像中的顏色物件？</strong></p>
+<p><strong>9.若影像中有多個同色物件，程式如何選擇追蹤目標？</strong></p>
+<p><strong>10.Tutorial7 能否應用於現實世界的機器人？需做哪些調整？</strong></p>
+<p><span style="background-color: #ffcc00;">Tutorial8 相關提問:</span></p>
+<p><strong>1.Tutorial8 的主要學習目標是什麼？</strong></p>
+<p><strong>2.什麼是 Supervisor？在 Tutorial8 扮演什麼角色？</strong></p>
+<p><strong>3.Supervisor 可以進行哪些操作？</strong></p>
+<p><strong>4.如何在 Supervisor 控制器中存取並控制其他機器人？</strong></p>
+<p><strong>5.如何用 Supervisor 監測機器人是否達到目標區域？</strong></p>
+<p><strong>6.Supervisor 如何重設模擬或重置機器人位置？</strong></p>
+<p><strong>7.Supervisor 能否獲取所有物件的座標與狀態？如何實作？</strong></p>
+<p><strong>8.如何紀錄機器人模擬過程的數據供日後分析？</strong></p>
+<p><strong>9.Supervisor 可以如何協助自動化測試機器人行為？</strong></p>
+<p><strong>10.綜合 Tutorial6~8，請說明感知（感測）、決策（控制器）、監督（Supervisor）三者如何協同運作。</strong></p><h1>Midterm</h1>
 <p>本課程所繳交的期中成績為學員自評之學習期望成績.</p>
 <p>期中考週的自評期望成績繳交流程:</p>
 <ol>

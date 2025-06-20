@@ -147,7 +147,76 @@ img.add_border {
 <p>操作影片標題: 國立虎尾科技大學 - 機械設計工程系 - cd2025 HW3 - 41071202</p>
 <p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" frameborder="0" height="315" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/F3-YU-pUmgI?si=zMT3v9LkJ4_-pQlv" title="YouTube video player" width="560"></iframe></p>
 <p><a href="./../downloads/hw3.zip">hw3.zip</a></p>
-<br />HW2 << <a href='HW2.html'>Previous</a> <a href='Midterm.html'>Next</a> >> Midterm</div>
+<p><span style="background-color: #ffcc00;">Tutorial6 相關提問:</span></p>
+<p><strong>1.Tutorial6 的主要學習主題是什麼？</strong></p>
+<p>學習如何使用攝影機感測器</p>
+<p><strong>2.在 Tutorial6 中，e-puck 機器人新增了哪些裝置？</strong></p>
+<p>新增了攝影機感測器，用來捕捉前方環境的影像</p>
+<p><strong>3.如何在 Webots 中使用攝影機（Camera）？</strong></p>
+<p>在 Robot 下加入 Camera 節點，設定位置與方向，並在控制器程式中透過 API 啟用並讀取影像資料</p>
+<p><strong>4.Camera 需要在程式中如何啟用？</strong></p>
+<p>必須呼叫 camera.enable(timeStep) 函式來啟用</p>
+<p><strong>5.如何取得攝影機擷取到的影像資料？</strong></p>
+<p>使用 camera.getImage() 方法取得原始影像資料，或者 camera.getImageArray() 取得更方便處理的陣列形式</p>
+<p><strong>6.Tutorial6 中，機器人如何依據攝影機影像做出反應？</strong></p>
+<p>程式會分析影像像素的顏色或圖案資訊，判斷環境狀況或物件位置，並根據判斷結果調整機器人的行動</p>
+<p><strong>7.Camera 裝置可以調整哪些參數？</strong></p>
+<p>可調整解析度、視野角度、更新頻率，以及是否啟用自動曝光等</p>
+<p></p>
+<p><strong>8.影像解析度的設定會對模擬有什麼影響？</strong></p>
+<p>解析度越高影像越清晰，但會增加運算負擔和延遲，降低模擬效率；解析度太低則影像細節不足</p>
+<p><strong>9.如何將攝影機影像儲存成圖片檔？</strong></p>
+<p>透過控制器程式讀取影像資料後，使用影像處理庫將影像資料轉成檔案格式並儲存</p>
+<p><strong>10.若攝影機影像顯示異常，可能的原因有哪些？</strong></p>
+<p>可能沒有正確啟用攝影機、時間步長設置錯誤、影像解析度不適合、模擬環境光源不足，或是程式錯誤導致影像資料未正常讀取</p>
+<p><span style="background-color: #ffcc00;">Tutorial7 相關提問:</span></p>
+<p><strong>1.Tutorial7 的核心任務是什麼？</strong></p>
+<p>讓機器人學會利用攝影機辨識並追蹤特定顏色物體</p>
+<p><strong>2.在本範例中 e-puck 機器人如何偵測顏色？</strong></p>
+<p>透過擷取攝影機影像，分析像素的 RGB 值，篩選出特定顏色範圍的像素點來判斷顏色位置</p>
+<p><strong>3.如何分析攝影機擷取的影像來辨識特定顏色？</strong></p>
+<p>將影像從 RGB 空間轉換到 HSV 空間，利用 HSV 中的色調、飽和度和明度設定顏色範圍，篩選符合顏色條件的區域</p>
+<p><strong>4.OpenCV 或其他影像處理函式庫在 Webots 控制器程式中的應用方式？</strong></p>
+<p>可以在控制器程式中引入 OpenCV，使用其強大的影像處理功能來做顏色篩選、物件追蹤、形狀辨識等，增加影像分析的精確度</p>
+<p><strong>5.如何將影像中的顏色資訊轉換為機器人行為？</strong></p>
+<p>根據辨識到的顏色物件位置，調整機器人的移動方向或速度，實現追蹤或避障等行為</p>
+<p><strong>6.若要辨識多種顏色，程式需考慮哪些步驟？</strong></p>
+<p>需設定多個顏色範圍的 HSV 閾值，分別篩選不同顏色，再根據辨識結果決定優先追蹤的顏色或同時處理多色物件</p>
+<p></p>
+<p><strong>7.如何解決不同光源下顏色偵測的不穩定問題？</strong></p>
+<p>利用 HSV 色彩空間可減少光照影響，調整色彩閾值範圍，或搭配自動白平衡與光照補償技術，提高辨識穩定性</p>
+<p><strong>8.e-puck 機器人如何追蹤影像中的顏色物件？</strong></p>
+<p>程式計算目標顏色區域的質心位置，透過調整左右輪速度讓目標保持在影像中心</p>
+<p><strong>9.若影像中有多個同色物件，程式如何選擇追蹤目標？</strong></p>
+<p>可選擇面積最大的區域、距離中心最近的區域，或依任務需求設定優先條件來決定追蹤哪個物件</p>
+<p><strong>10.Tutorial7 能否應用於現實世界的機器人？需做哪些調整？</strong></p>
+<p>能，但須針對真實環境調整顏色閾值、光照補償，且硬體部分需確保攝影機性能及運算能力足夠</p>
+<p><span style="background-color: #ffcc00;">Tutorial8 相關提問:</span></p>
+<p><strong>1.Tutorial8 的主要學習目標是什麼？</strong></p>
+<p>學習使用 Supervisor 節點監督整個模擬環境，操控多個機器人，實現模擬監控、自動重置與資料紀錄等功能</p>
+<p><strong>2.什麼是 Supervisor？在 Tutorial8 扮演什麼角色？</strong></p>
+<p>Supervisor 是一種特殊的控制器，能夠監控和操控模擬世界中的所有物件，協調多機器人的行為並執行高層次控制</p>
+<p><strong>3.Supervisor 可以進行哪些操作？</strong></p>
+<p>取得物件位置、修改物件狀態、重設機器人位置、讀取並寫入模擬環境資料、紀錄數據、控制模擬流程等</p>
+<p><strong>4.如何在 Supervisor 控制器中存取並控制其他機器人？</strong></p>
+<p>透過 getFromDef() 取得指定機器人節點，並使用 API 控制其位置、狀態或調用方法</p>
+<p><strong>5.如何用 Supervisor 監測機器人是否達到目標區域？</strong></p>
+<p>定期讀取機器人位置資訊，判斷是否進入目標區域的座標範圍，並根據結果執行後續動作</p>
+<p><strong>6.Supervisor 如何重設模擬或重置機器人位置？</strong></p>
+<p>使用 supervisor.simulationReset() 重置模擬，或透過改變機器人節點的座標屬性來重置位置</p>
+<p><strong>7.Supervisor 能否獲取所有物件的座標與狀態？如何實作？</strong></p>
+<p>可以，使用 getRoot() 取得場景樹，再透過節點遍歷取得所有物件的資訊</p>
+<p><strong>8.如何紀錄機器人模擬過程的數據供日後分析？</strong></p>
+<p></p>
+<p>Supervisor 可以在控制器中寫入資料到檔案，如座標、狀態、感測器讀數等，保存模擬紀錄</p>
+<p><strong>9.Supervisor 可以如何協助自動化測試機器人行為？</strong></p>
+<p></p>
+<p>透過腳本自動控制場景、監控行為達成狀況、自動重置環境並記錄結果，實現測試流程的自動化</p>
+<p><strong>10.綜合 Tutorial6~8，請說明感知（感測）、決策（控制器）、監督（Supervisor）三者如何協同運作。</strong></p>
+<p>感知：透過攝影機等感測器擷取環境資料，讓機器人能看見周圍狀況</p>
+<p>決策：控制器分析感測資料，做出行為判斷與決策，控制機器人移動、避障或追蹤目標</p>
+<p>監督：Supervisor 監控整體模擬狀況，可同時管理多個機器人，負責協調任務流程、重置環境及紀錄數據</p>
+<p></p><br />HW2 << <a href='HW2.html'>Previous</a> <a href='Midterm.html'>Next</a> >> Midterm</div>
         
     <!-- footer -->
       <div class="container">
